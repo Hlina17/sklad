@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .sklady {
+      @apply flex justify-center flex-1 border border-black rounded-3xl text-center h-60 mx-3 mb-6
+    }
+    .tlacidlo{
+      @apply border-4 border-shiny-yellow bg-boring-gray text-shiny-yellow hover:bg-shiny-yellow hover:text-boring-gray ease-in duration-100
+    }
+  }

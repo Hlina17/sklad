@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="stylesheet" href="input.css" />
+    <link rel="stylesheet" href="output.css" />
+
+    <style>
+
+      #pozadie{
+          background-image: url(obr/pozadie.png);
+          background-size: cover;
+           }
+      #button{
+        border-radius: 20px;
+        background-color: #B8B8B8;
+        color: #FFFFFF;
+        font-size: 18px;
+        padding: 10px 20px;
+        width: 100px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        justify-content: center ;
+        display: flex;
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body id="pozadie" class="h-screen overflow-hidden bg-gray-100 ">
+    <div class="flex justify-center">
+      <input
+        placeholder="Vyhladávať..."
+        type="search"
+        class="border border-black rounded-md p-1.5 mt-12 w-3/12"
+      />
+    </div>
+
+    <div class="flex flex-col items-center justify-center h-screen">
+      <div class="flex w-full justify-center items-center gap-60">
+        <button
+          id="button"
+          class="border-2  border-shiny-yellow bg-boring-gray text-shiny-yellow hover:bg-shiny-yellow hover:text-boring-gray ease-in duration-100"
+        >
+          Tovar
+        </button>
+        <button
+          id="button"
+          class="border-2 border-shiny-yellow bg-boring-gray text-shiny-yellow hover:bg-shiny-yellow hover:text-boring-gray ease-in duration-100"
+        >
+          Nástroje
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e4c29b95ce.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <title>Pridanie užívateľa</title>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100" id="pozadie">
+
+    <div class="w-full max-w-sm bg-white shadow-md rounded-lg p-6" >
+        <h2 class="text-2xl font-bold text-center mb-6">Registrácia</h2>
+
+        <form id="MyForm" action="" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Meno</label>
+                <input type="text" id="username" name="username" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="date" class="block text-sm font-medium text-gray-700">Dátum narodenia</label>
+                <input type="date" id="date" name="date" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Telefónne číslo</label>
+                <input type="tel" id="phone" name="phoneNumber" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="width: 335px" required>
+                <span id="phoneError" style="color: red; display: none;">Zadajte platné telefonné číslo</span><br>
+            </div>
+            
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700">Heslo</label>
+                <input type="password" id="password" name="password" minlength="8" disabled="disabled" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+
+	    <button class="w-full py-2 px-4 rounded-md tlacidlo">
+                <p>Vygenerovať heslo</p>
+        </button>
+        <br>
+        <br>
+            <button type="submit" class="w-full py-2 px-4 rounded-md tlacidlo">
+                <p>Registerovať</p>
+            </button>
+        </form>
+
+        <p class="mt-4 text-sm text-center text-gray-600">
+            Už máte vytvorený účet? <a href="#" class="text-boring-gray hover:underline">Prihlásenie</a>
+        </p>
+    </div>
+
+    <script>
+        // Nastavenie intlTelInput (predvoľby pre tel. čísla)
+        var input = document.querySelector("#phone");
+        var iti = window.intlTelInput(input, {
+            initialCountry: "sk", 
+            separateDialCode: true, 
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js", 
+        });
+    
+        // Overenie správneho formátu telefónneho čísla pred odoslaním
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            if (!iti.isValidNumber()) {
+                event.preventDefault(); // Zastaví odoslanie formulára
+                document.getElementById("phoneError").style.display = "block"; // Zobrazí chybovú správu
+            } else {
+                document.getElementById("phoneError").style.display = "none";
+                input.value = iti.getNumber(); // Nastaví celé číslo aj s predvoľbou
+            }
+        });
+    </script>
+
+</body>
+</html>
